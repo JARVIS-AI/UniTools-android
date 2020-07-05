@@ -1,12 +1,12 @@
 package com.github.ali77gh.unitools.core;
 
-import android.content.Context;
-
+import com.ali.uneversaldatetools.date.GregorianDateTime;
+import com.ali.uneversaldatetools.date.IDate;
+import com.ali.uneversaldatetools.date.TimeZoneHelper;
 import com.github.ali77gh.unitools.R;
 import com.github.ali77gh.unitools.core.tools.DateTimeTools;
 import com.github.ali77gh.unitools.data.model.Event;
 import com.github.ali77gh.unitools.data.model.UClass;
-import com.github.ali77gh.unitools.data.repo.UserInfoRepo;
 
 /**
  * Created by ali77gh on 10/12/18.
@@ -25,12 +25,14 @@ public class Translator {
 
             int diff = DateTimeTools.getCurrentTime().getMins() - uClass.time.getMins();
             if (diff > 0 & diff < 60) {
-                toClass = "(" + ContextHolder.getAppContext().getString(R.string.started) + ")";
+                toClass = "(" + CH.getString(R.string.started) + ")";
             } else if (diff < 0) {
-                toClass = "(" + String.valueOf(uClass.time.getMins() - DateTimeTools.getCurrentTime().getMins()) + " " + ContextHolder.getAppContext().getString(R.string.minute_later) + " )";
-            } else day = ContextHolder.getAppContext().getString(R.string.today);
+                toClass = "(" + ToNextClassString(uClass.time.getMins() - DateTimeTools.getCurrentTime().getMins()) + " " + CH.getString(R.string.later) + " )";
+            } else
+                day = CH.getString(R.string.today);
+
         } else if (DateTimeTools.getCurrentDayOfWeek() + 1 == uClass.time.dayOfWeek | (DateTimeTools.getCurrentDayOfWeek() == 6 & 0 == uClass.time.dayOfWeek)) {
-            day = ContextHolder.getAppContext().getString(R.string.tomorrow);
+            day = CH.getString(R.string.tomorrow);
         } else {
             day = getDayString(uClass.time.dayOfWeek);
         }
@@ -42,58 +44,69 @@ public class Translator {
     }
 
     public static String getEventReadable(Event event) {
-        Context context = ContextHolder.getAppContext();
-        int currentDayOfWeek = DateTimeTools.getCurrentDayOfWeek();
-        int currentWeek = UserInfoRepo.getWeekNumber();
 
-        String week;
-        if (currentWeek == event.WeekNumber) {
-            week = context.getString(R.string.this_week);
-        } else if (currentWeek + 1 == event.WeekNumber) {
-            week = context.getString(R.string.next_week);
-        } else if (currentWeek + 2 == event.WeekNumber) {
-            week = context.getString(R.string.two_weeks_later);
-        } else if (event.WeekNumber > currentWeek) {
-            week = (event.WeekNumber - currentWeek) + " " + context.getString(R.string.weeks_later);
-        } else if (event.WeekNumber < currentWeek) {
-            week = context.getString(R.string.passed) + " : " + context.getString(R.string.week) + " " + String.valueOf(event.WeekNumber);
+        GregorianDateTime today = GregorianDateTime.Now();
+        GregorianDateTime eventDay = new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone());
+
+        int diffInDays = eventDay.getDays() - today.getDays();
+
+        if (diffInDays > 0) {
+
+            return String.valueOf(diffInDays) +
+                    " " +
+                    CH.getString(R.string.day) +
+                    " " +
+                    CH.getString(R.string.after) +
+                    " " +
+                    NumToStringClockMode(new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone()).getHour()) +
+                    ":" +
+                    NumToStringClockMode(new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone()).getMin()) +
+                    " " +
+                    event.what;
+
+        } else if (diffInDays < 0) {
+            diffInDays *= -1; //negetive to postive
+            return String.valueOf(diffInDays) +
+                    " " +
+                    CH.getString(R.string.day) +
+                    " " +
+                    CH.getString(R.string.ago) +
+                    " " +
+                    NumToStringClockMode(new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone()).getHour()) +
+                    ":" +
+                    NumToStringClockMode(new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone()).getMin()) +
+                    " " +
+                    event.what;
         } else {
-            throw new RuntimeException("un excepted week number");
+            //today
+            return CH.getString(R.string.today) +
+                    " " +
+                    NumToStringClockMode(new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone()).getHour()) +
+                    ":" +
+                    NumToStringClockMode(new GregorianDateTime((int) event.unixTime, TimeZoneHelper.getSystemTimeZone()).getMin()) +
+                    " " +
+                    event.what;
         }
 
-        String day;
-        if (currentWeek == event.WeekNumber){
-            if (currentDayOfWeek == event.time.dayOfWeek) {
-                day = context.getString(R.string.today);
-            } else if (currentDayOfWeek + 1 == event.time.dayOfWeek |
-                    (currentDayOfWeek == 6 & 0 == event.time.dayOfWeek)) {
-                day = context.getString(R.string.tomorrow);
-            } else {
-                day = getDayString(event.time.dayOfWeek);
-            }
-        } else {
-            day = getDayString(event.time.dayOfWeek);
-        }
 
-        return week + " " + day + " " + event.time.toString() + " " + event.what;
     }
 
 
     public static String getDayString(int day) {
-        return ContextHolder.getAppContext().getResources().getStringArray(R.array.weekDays)[day];
+        return CH.getStringArray(R.array.weekDays)[day];
     }
 
     public static String NumToString(String s) {
-        s.replace("0", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[0]);
-        s.replace("1", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[1]);
-        s.replace("2", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[2]);
-        s.replace("3", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[3]);
-        s.replace("4", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[4]);
-        s.replace("5", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[5]);
-        s.replace("6", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[6]);
-        s.replace("7", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[7]);
-        s.replace("8", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[8]);
-        s.replace("9", ContextHolder.getAppContext().getResources().getStringArray(R.array.nums)[9]);
+        s.replace("0", CH.getStringArray(R.array.nums)[0]);
+        s.replace("1", CH.getStringArray(R.array.nums)[1]);
+        s.replace("2", CH.getStringArray(R.array.nums)[2]);
+        s.replace("3", CH.getStringArray(R.array.nums)[3]);
+        s.replace("4", CH.getStringArray(R.array.nums)[4]);
+        s.replace("5", CH.getStringArray(R.array.nums)[5]);
+        s.replace("6", CH.getStringArray(R.array.nums)[6]);
+        s.replace("7", CH.getStringArray(R.array.nums)[7]);
+        s.replace("8", CH.getStringArray(R.array.nums)[8]);
+        s.replace("9", CH.getStringArray(R.array.nums)[9]);
         return s;
     }
 
@@ -101,11 +114,30 @@ public class Translator {
         return NumToString(String.valueOf(s));
     }
 
+    public static String NumToStringClockMode(int value){
+        if (value < 10)
+            return  "0" + String.valueOf(value);
+        else
+            return String.valueOf(value);
+    }
+
+    private static String ToNextClassString(int mins){
+
+        final int hour = mins / 60;
+        final int min = mins % 60;
+
+        return NumToStringClockMode(hour) + ":" + NumToStringClockMode(min);
+    }
+
 
     public static String getWeekNumberString(int weekNumber) {
-        if (weekNumber > 100) {
-            return ContextHolder.getAppContext().getString(R.string.not_set);
+        if (weekNumber > 38) {
+            return CH.getString(R.string.not_set);
         }
-        return ContextHolder.getAppContext().getResources().getString(R.string.week) + " " + NumToString(weekNumber);
+        return CH.getString(R.string.week) + " " + NumToString(weekNumber);
+    }
+
+    public static String getDateString(IDate date) {
+        return String.format("%04d/%02d/%02d ", date.getYear(), date.getMonth(), date.getDay());
     }
 }

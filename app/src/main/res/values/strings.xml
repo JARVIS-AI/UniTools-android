@@ -1,11 +1,10 @@
 <resources>
     <string name="app_name">UniTools</string>
-    <string name="app_version">1.5.0</string>
+    <string name="app_version">1.8.1</string>
 
     <string name="LangID">"en</string>
 
-    <string name="about_text">this is a free and open source application for students. if you have any idea contact me with my email</string>
-    <string name="thanks">با تشکر از : \n ناهید قهرمانی  \n صبیح فرهنگی  \n سعید زبده  \n و هومن میرشفیی \n و....   </string>
+    <string name="about_text">this is a free and open source application for students. if you have ideas for improvement, contact me via email</string>
     <string name="language">language</string>
     <string name="theme">theme</string>
     <string name="notification">notification</string>
@@ -19,10 +18,10 @@
     <string name="transfer">transfer</string>
     <string name="friends">friends</string>
     <string name="next_class">next class</string>
-    <string name="there_is_no_class_yet">there is no class yet :)</string>
+    <string name="there_is_no_class_yet">there are no classes yet :)</string>
     <string name="add">add</string>
     <string name="show_all">show all</string>
-    <string name="you_have_no_event_yet">you have no event yet :)</string>
+    <string name="you_have_no_event_yet">you have no events yet :)</string>
     <string name="you_have_no_friends_yet">you have no friends yet :(</string>
     <string name="backup">backup</string>
     <string name="tools">tools</string>
@@ -46,7 +45,7 @@
     <string name="add_new_class">add new class</string>
     <string name="edit_new_class">edit new class</string>
     <string name="edit_new_event">edit new event</string>
-    <string name="whats_is_he_she_name">whats is he/she name?</string>
+    <string name="whats_is_he_she_name">what is his/her name?</string>
     <string name="not_set">not set</string>
     <string name="ready_to_add">ready to add</string>
     <string name="add_new_friend">add new friend</string>
@@ -55,13 +54,13 @@
     <string name="scan_qr_code">scan QR code</string>
     <string name="paste">paste</string>
     <string name="week_number_5">week number 5</string>
-    <string name="reminder">reminder (beta)</string>
+    <string name="reminder">reminder</string>
     <string name="auto_silent">auto silent (beta)</string>
     <string name="copy">Copy</string>
     <string name="classes">classes</string>
     <string name="next">next: </string>
     <string name="enter_current_week_number">enter current week number</string>
-    <string name="enter_number">enter number :|</string>
+    <string name="enter_number">enter number </string>
     <string name="week">week</string>
     <string name="coming_soon">coming soon…</string>
     <string name="friend_info">friend info</string>
@@ -74,11 +73,11 @@
     <string name="two_weeks_later">two weeks later</string>
     <string name="weeks_later"> weeks later</string>
     <string name="next_class_is_close"> next class is close</string>
-    <string name="how_match_before_class_start_time">how match before class start time?</string>
+    <string name="how_match_before_class_start_time">how match before class?</string>
     <string name="notification_type">notification type</string>
     <string name="teacher">teacher</string>
     <string name="passed">passed</string>
-    <string name="enter_time_in_24_system">enter time in 24 system</string>
+    <string name="enter_time_in_24_system">enter time in the 24 hour time format</string>
     <string name="you_should_allow_access_to_files">you should first allow access to files</string>
     <string name="buy_me_a_coffee">buy me a coffee</string>
     <string name="send_feedback">send feedback</string>
@@ -86,62 +85,77 @@
     <string name="send">send</string>
     <string name="feedback_recorded">feedback recorded</string>
     <string name="thank_you">thank you</string>
-    <string name="add_doc">add doc</string>
-    <string name="select_somethings">select somethings</string>
-    <string name="new_doc_name">new doc name</string>
-    <string name="pics">pics</string>
-    <string name="voices">voices</string>
-    <string name="note">note</string>
+    <string name="add_doc">add documnet</string>
+    <string name="select_somethings">select something</string>
+    <string name="new_doc_name">new documents name</string>
+    <string name="pics">photos</string>
+    <string name="voices">recordings</string>
+    <string name="note">notes</string>
     <string name="write_here">write here</string>
     <string name="there_is_nothing_to_show">there is nothing to show</string>
     <string name="absents">absents</string>
     <string name="pay">pay</string>
-    <string name="how_match_to_pay">how match to pay</string>
-    <string name="donate_programmer_of_this_app_to_improve_app_and_add_more_features">donate programmer of this app to improve app and add more features</string>
+    <string name="how_match_to_pay">how much to pay</string>
+    <string name="donate_programmer_of_this_app_to_improve_app_and_add_more_features">donate to the programmer of this app, to help improve the app and add more features</string>
     <string name="coffee">coffee</string>
-    <string name="write_describe">write describe</string>
+    <string name="write_describe">write description</string>
     <string name="enter_storage_name">enter storage name</string>
-    <string name="exists">already exist</string>
-    <string name="open_on_github">open on github</string>
+    <string name="exists">already exists</string>
+    <string name="open_on_github">open Github</string>
+    <string name="open_instagram">open Instagram</string>
     <string name="open_on_website">open website</string>
     <string name="share_classes">share classes</string>
     <string name="started">started</string>
-    <string name="minute_later">minute later</string>
+    <string name="later">later</string>
     <string name="there_is_no_class">there is no class</string>
     <string name="select_language">select language</string>
     <string name="skip">skip</string>
-    <string name="confirm_delete">confirm delete</string>
-    <string name="are_you_sure_this_will_never_undo">are you sure? this will never undo</string>
-    <string name="edit_doc">edit doc</string>
+    <string name="confirm_delete">confirm deletion</string>
+    <string name="are_you_sure_this_will_never_undo">are you sure? you cannot undo this</string>
+    <string name="edit_doc">edit document</string>
     <string name="rename">rename</string>
     <string name="open_app_again_reverse">اپلیکیشن را دوباره باز کنید</string> <!--this should be persian-->
     <string name="available_today">available today</string>
-    <string name="pdf">pdf</string>
+    <string name="pdf">pdfs</string>
     <string name="export">export</string>
     <string name="generate_pdf_from_photos">generate pdf from photos</string>
-    <string name="start_generate_pdf">start generate pdf</string>
-    <string name="pdf_generate_failed">pdf generate failed</string>
+    <string name="start_generate_pdf">start generating pdf</string>
+    <string name="pdf_generate_failed">pdf generation failed</string>
+    <string name="pdf_copy_failed">pdf copy failed</string>
     <string name="pdf_saved_to_pdf_list">pdf saved to pdf list</string>
     <string name="enter_name">enter name</string>
     <string name="calendar">calendar</string>
-    <string name="chose_date">chose date</string>
+    <string name="choose_date">choose date</string>
     <string name="first_select_date">first select date</string>
     <string name="date_is_not_valid">date is not valid</string>
-    <string name="wrong_barcode">wrong_barcode</string>
+    <string name="wrong_barcode">wrong barcode</string>
     <string name="link">link</string>
     <string name="link_copied">link copied</string>
     <string name="update_available">Update available</string>
-    <string name="cant_add_friend">can not add friend</string>
+    <string name="cant_add_friend">cannot add friend</string>
     <string name="friend_added_successfully">friend added successfully</string>
-    <string name="first_take_some_picture">first take some picture</string>
+    <string name="first_take_some_picture">first take some pictures</string>
     <string name="restore">restore</string>
-    <string name="chose_file">chose file</string>
+    <string name="choose_file">choose file</string>
     <string name="delete_current">delete current</string>
     <string name="select_something">select something</string>
-    <string name="nothing_to_take_backup">nothing to take backup</string>
+    <string name="nothing_to_take_backup">nothing to back up</string>
     <string name="backup_saved_in">backup saved in</string>
-    <string name="successfully_done">successfully done</string>
+    <string name="successfully_done">successfully finished</string>
     <string name="put_backup_file_in">put backup file in</string>
+    <string name="open_this_with_unitools_app">open this with unitools app</string>
+    <string name="pages">pages</string>
+    <string name="plz_enter_right_number">please enter correct number</string>
+    <string name="search_friends">search friends</string>
+    <string name="choose_doc">choose doc</string>
+    <string name="always_show_next_class">always show next class</string>
+    <string name="day">day</string>
+    <string name="after">later</string>
+    <string name="ago">passed</string>
+    <string name="supporters">supporters</string>
+    <string name="teacher_name_optional">teacher name (optional)</string>
+    <string name="recording">recording</string>
+    <string name="close_app_from_recent_will_stop_recording">close app from recent will stop recording</string>
 
     <string-array name="nums">
         <item>0</item>
@@ -167,11 +181,12 @@
     </string-array>
 
     <string-array name="notification_modes">
-        <item>notification + sound</item>
-        <item>only notification</item>
+        <item>notifications + sound</item>
+        <item>only notifications</item>
         <item>nothing</item>
     </string-array>
 
+    <!--don't change here <KEYS> -->
     <string-array name="languages">
         <item>english</item>
         <item>فارسی</item>
@@ -183,13 +198,14 @@
     </string-array>
 
     <string-array name="guide">
-        <item>in this part you can manage your classes and events.</item>
-        <item>you can share your classes list via qr code.</item>
-        <item>in this part you can get your friend classes via scanning qr code. (this part do not need internet connection)</item>
-        <item>you can use widget to see your next class.</item>
-        <item>this part designed for manage your pictures that you take from whiteboard and your friends pamphlets.</item>
-        <item>this part designed for manage your voices that you record in class.</item>
-        <item>in this part you can write note about your class</item>
+        <item>here you can manage your classes and events</item>
+        <item>you can share your classes via a qr code</item>
+        <item>you can get your friends classes by scanning the qr code (you do not need an internet connection)</item>
+        <item>you can use a widget to see your next class</item>
+        <item>here you can manage the pictures that you take</item>
+        <item>this part is designed to manage your recordings from class</item>
+        <item>in this section you can write notes about your classes</item>
+        <item>here you can store your pdfs, which you can generate from photos you have saved</item>
     </string-array>
 
 </resources>

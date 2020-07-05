@@ -2,12 +2,10 @@
 <resources>
 
     <string name="app_name">UniTools</string>
-    <string name="app_version">1.5.0</string>
 
     <string name="LangID">"fa</string>
 
-    <string name="about_text"> این نرم افزار به صورت آزاد و کاملا رایگان در اختیار دانشجویان قرار گرفته تا کار های روزانه ی دانشجویان را راحت تر کند. این اپلیکیشن را به دوستان خود معرفی کنید و اگر انتقاد یا پیشنهاد یا در خواست قابلیت خاصی را دارید حتما با من در میان بگذارید. (ایمیلم همین پایین هست) شما میتوانید با اپلود کردن جزوات خود و نظر دادن در مورد اساتید به دانشجویان دیگر کمک کنید. </string>
-    <string name="thanks">با تشکر از : \n ناهید قهرمانی  \n صبیح فرهنگی  \n سعید زبده  \n و هومن میرشفیی \n و....   </string>
+    <string name="about_text"> این نرم افزار به صورت آزاد و کاملا رایگان در اختیار دانشجویان قرار گرفته تا کار های روزانه ی دانشجویان را راحت تر کند. این اپلیکیشن را به دوستان خود معرفی کنید و اگر انتقاد یا پیشنهاد یا در خواست قابلیت خاصی را دارید حتما با من در میان بگذارید. (ایمیلم همین پایین هست) </string>
     <string name="language">زبان</string>
     <string name="theme">تم</string>
     <string name="notification">نوتیفیکیشن</string>
@@ -57,7 +55,7 @@
     <string name="scan_qr_code">اسکن بارکد</string>
     <string name="paste">چسباندن</string>
     <string name="week_number_5">هفته پنجم : شنبه</string>
-    <string name="reminder">یادآوری (آزمایشی)</string>
+    <string name="reminder">یادآوری </string>
     <string name="auto_silent">سایلنت اتوماتیک (آزمایشی)</string>
     <string name="copy">کپی</string>
     <string name="classes">کلاس ها</string>
@@ -76,9 +74,9 @@
     <string name="two_weeks_later">دو هفته بعد</string>
     <string name="weeks_later">هفته بعد</string>
     <string name="next_class_is_close"> کلاس بعدی نزدیک است</string>
-    <string name="how_match_before_class_start_time">چقدر قبلش؟</string>
+    <string name="how_match_before_class_start_time">چقدر قبل از شروع کلاس؟</string>
     <string name="notification_type">نوع اعلان</string>
-    <string name="teacher">اساتید</string>
+    <string name="teacher">استاد</string>
     <string name="passed">گذشته</string>
     <string name="enter_time_in_24_system">ساعت را با سیستم ۲۴ ساعتی وارد کنید</string>
     <string name="you_should_allow_access_to_files">ابتدا دسترسی های لازم را بدهید</string>
@@ -105,10 +103,11 @@
     <string name="enter_storage_name">نام جزوه</string>
     <string name="exists">تکراری است</string>
     <string name="open_on_github">باز کردن گیت هاب</string>
+    <string name="open_instagram">باز کردن اینستاگرام</string>
     <string name="open_on_website">باز کردن وبسایت</string>
     <string name="share_classes">اشتراک گذاری کلاس ها</string>
     <string name="started">شروع شده</string>
-    <string name="minute_later">دقیقه دیگر</string>
+    <string name="later">مانده تا شروع</string>
     <string name="there_is_no_class">کلاسی وجور ندارد</string>
     <string name="select_language">زبان را انتخاب کنید</string>
     <string name="skip">بلدم</string>
@@ -123,10 +122,11 @@
     <string name="generate_pdf_from_photos">ساختن پی دی اف از عکس ها</string>
     <string name="start_generate_pdf">در حال ساختن پی دی اف</string>
     <string name="pdf_generate_failed">پی دی اف ساخته نشد</string>
+    <string name="pdf_copy_failed">مشکل در کپی کردن فایل</string>
     <string name="pdf_saved_to_pdf_list">پی دی اف به لیست اضافه شد</string>
     <string name="enter_name">نام را وارد کنید</string>
     <string name="calendar">تقویم</string>
-    <string name="chose_date">انتخاب تاریخ</string>
+    <string name="choose_date">انتخاب تاریخ</string>
     <string name="first_select_date">اول تاریخ را انتخاب کنید</string>
     <string name="date_is_not_valid">تاریخ را درست انتخاب کنید</string>
     <string name="wrong_barcode">بار کد اشتباه</string>
@@ -137,13 +137,26 @@
     <string name="friend_added_successfully">دوست شما با موفقیت اضافه شد</string>
     <string name="first_take_some_picture">ابتدا حداقل یک عکس بگیرید</string>
     <string name="restore">بازیابی</string>
-    <string name="chose_file">انتخاب فایل</string>
+    <string name="choose_file">انتخاب فایل</string>
     <string name="delete_current">پاک کردن اطلاعات فعلی</string>
     <string name="select_something">حداقل یه چیز را انتخاب کنید</string>
     <string name="nothing_to_take_backup">چیزی برای بک اپ گیری وجود ندارد</string>
     <string name="backup_saved_in">بک اپ ذخیره شد در</string>
     <string name="successfully_done">با موفقیت انجام شد</string>
     <string name="put_backup_file_in">فایل بک اپ را در اینجا قرار دهید</string>
+    <string name="open_this_with_unitools_app">با اپلیکیشن unitools باز کنید</string>
+    <string name="pages">صفحه</string>
+    <string name="plz_enter_right_number">عدد را صحیح وارد کنید</string>
+    <string name="search_friends">جست و جوی دوستان</string>
+    <string name="choose_doc">جزوه را انتخاب کنید</string>
+    <string name="always_show_next_class">اعلان همیشگی برای کلاس بعدی</string>
+    <string name="day">روز</string>
+    <string name="after">بعد</string>
+    <string name="ago">قبل</string>
+    <string name="supporters">حامیان</string>
+    <string name="teacher_name_optional">نام استاد (اختیاری)</string>
+    <string name="recording">در حال ضبط صدا</string>
+    <string name="close_app_from_recent_will_stop_recording">بستن برنامه از برنامه های background باعث توقف ضبط میشود</string>
 
     <string-array name="nums">
         <item>۰</item>
@@ -185,13 +198,14 @@
     </string-array>
 
     <string-array name="guide">
-        <item>در این بخش میتونید کلاس ها و رویداد های خود را مدیریت کنید.</item>
-        <item>به وسیله ی این بارکد میتوانید لیست کلاس های خود را با دوستان خود به اشتراک بزارید.</item>
+        <item>در این بخش میتونید برنامه هفتگی خودتان و رویداد ها و برنامه هفتگی دوستان خود را مدیریت کنید.</item>
+        <item>به وسیله ی این بارکد یا فرستادن لینک میتوانید برنامه هفتگی خود را با دوستان خود به اشتراک بزارید.</item>
         <item>در این بخش میتونید با اسکن کردن بارکد از گوشی دوست خود لیست کلاس های او را داشته با شید. (این بخش به اینترنت نیاز ندارد)</item>
         <item>با اضافه کردن ویجت میتونید بدون باز کردن برنامه از زمان و مکان کلاس بعدی خود مطلع شوید.</item>
         <item>این بخش برای مدیریت عکس هایی که از تخته و جزوه ی دوستاتون میگیرید طراحی شده.</item>
         <item>این بخش هم برای مدیریت صدا هایی است که سر کلاس ها ضبط میکنید.</item>
         <item>در این جا هم میتونید یادداشت هایی در مورد هر کلاس بنویسید.</item>
+        <item>در این بخش میتونید پی دی اف های کلاس خود را نگه دارید و البته میتونید پی دی اف خودتان را از عکس هایی که گرفتید بسازید و با دوستانتان به اشتراک بزارید.</item>
     </string-array>
 
 </resources>

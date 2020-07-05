@@ -2,20 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.github.ali77gh.unitools">
+
     <!-- storage part -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.STORAGE" />
-    <!-- for make phone silent -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <!-- push notify needs this -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- Permission to Reset Alarm on device reboot -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- IO -->
+    <uses-permission android:name="android.permission.STORAGE" /> <!-- push notify needs this -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Permission to Setup Alarm on device reboot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- IO -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- silent -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- databeen -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -26,9 +26,39 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".uI.activities.InputLinkActivity">
+        android:theme="@style/AppTheme">
+        <receiver
+            android:name=".core.audio.VoiceRecorderReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity android:name=".ui.activities.InputPdfActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="*" />
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:pathPattern=".*\\.pdf" />
+                <data android:pathPattern=".*\\..*\\.pdf" />
+                <data android:pathPattern=".*\\..*\\..*\\.pdf" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="*" />
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activities.InputLinkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -41,16 +71,16 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".uI.activities.GuideActivity" /> <!-- QR scanner activity -> for setting screen orientation -->
+        <activity android:name=".ui.activities.GuideActivity" /> <!-- QR scanner activity -> for setting screen orientation -->
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation" />
         <activity
-            android:name=".uI.activities.HomeActivity"
+            android:name=".ui.activities.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".uI.activities.SplashActivity"
+            android:name=".ui.activities.SplashActivity"
             android:label="uni tools"
             android:noHistory="true"
             android:screenOrientation="portrait">
@@ -61,14 +91,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".uI.activities.SelectLangActivity"
+            android:name=".ui.activities.SelectLangActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".uI.activities.FilePackActivity"
+            android:name=".ui.activities.FilePackActivity"
             android:screenOrientation="portrait" />
 
-        <receiver android:name=".uI.widget.ShowNextClassWidget">
+        <receiver android:name=".ui.widget.ShowNextClassWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -77,12 +107,20 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/show_next_class_widget_info" />
         </receiver>
-
         <receiver
-            android:name=".core.ReminderAndAutoSilent"
+            android:name=".core.alarmAndAutoSilent.BootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".core.alarmAndAutoSilent.ReminderAndAutoSilent" /> <!-- databeen -->
+        <service
+            android:name="ir.databeen.sdk.HttpService"
             android:enabled="true"
-            android:exported="false"
-            android:process=":remote" />
+            android:exported="true" />
+
+        <receiver android:name="ir.databeen.sdk.HttpBoot" />
     </application>
 
 </manifest>
